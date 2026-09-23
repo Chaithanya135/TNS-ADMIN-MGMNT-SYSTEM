@@ -1,0 +1,639 @@
+{
+  "info": {
+    "_postman_id": "b3e6484a-3b56-4c99-923f-561b369c7f12",
+    "name": "Placement Admin Service API Collection",
+    "description": "Complete Postman collection for Placement Management System - Admin Service backend. Includes all Admin, Student, Company, Placement Drive, Application, and Dashboard endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Admin APIs",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@placement.edu\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admins/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admins", "login"]
+            },
+            "description": "Authenticate an administrator using email and password."
+          }
+        },
+        {
+          "name": "Create Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Siddharth Rao\",\n  \"email\": \"siddharth.rao@placement.edu\",\n  \"password\": \"sidAdmin@2026\",\n  \"phone\": \"+91 9876500001\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admins",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admins"]
+            },
+            "description": "Register a new Administrator."
+          }
+        },
+        {
+          "name": "Get All Admins",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admins",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admins"]
+            },
+            "description": "Retrieve all administrators (passwords excluded)."
+          }
+        },
+        {
+          "name": "Get Admin By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admins/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admins", "1"]
+            },
+            "description": "Retrieve admin details by ID."
+          }
+        },
+        {
+          "name": "Update Admin",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Placement Lead Officer\",\n  \"email\": \"admin@placement.edu\",\n  \"password\": \"newSecureAdmin123\",\n  \"phone\": \"+91 9876543210\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admins/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admins", "1"]
+            },
+            "description": "Update an existing admin's details."
+          }
+        },
+        {
+          "name": "Delete Admin",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admins/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admins", "3"]
+            },
+            "description": "Delete an admin record by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - Student APIs",
+      "item": [
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Manish Malhotra\",\n  \"email\": \"manish.m@example.com\",\n  \"phone\": \"+91 9811223344\",\n  \"rollNumber\": \"CSE011\",\n  \"department\": \"Computer Science\",\n  \"course\": \"B.Tech\",\n  \"graduationYear\": 2026,\n  \"cgpa\": 8.92,\n  \"skills\": \"Java, Spring Boot, React, Docker\",\n  \"placementStatus\": \"NOT_PLACED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            },
+            "description": "Create a new student profile."
+          }
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            },
+            "description": "Retrieve all students."
+          }
+        },
+        {
+          "name": "Get Student By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            },
+            "description": "Retrieve student details by ID."
+          }
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rahul Kumar\",\n  \"email\": \"rahul.kumar@example.com\",\n  \"phone\": \"+91 9123456780\",\n  \"rollNumber\": \"CSE001\",\n  \"department\": \"Computer Science\",\n  \"course\": \"B.Tech\",\n  \"graduationYear\": 2026,\n  \"cgpa\": 9.10,\n  \"skills\": \"Java, Spring Boot, React, MySQL, AWS, Docker\",\n  \"placementStatus\": \"NOT_PLACED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            },
+            "description": "Update student information."
+          }
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "10"]
+            },
+            "description": "Delete a student record."
+          }
+        },
+        {
+          "name": "Search Students By Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/search?name=Rahul",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "search"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Rahul"
+                }
+              ]
+            },
+            "description": "Search students with partial name match."
+          }
+        },
+        {
+          "name": "Get Students By Department",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/department/Computer Science",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "department", "Computer Science"]
+            },
+            "description": "Filter students by department."
+          }
+        },
+        {
+          "name": "Get Students By Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/status/PLACED",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "status", "PLACED"]
+            },
+            "description": "Filter students by placement status (PLACED or NOT_PLACED)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - Company APIs",
+      "item": [
+        {
+          "name": "Create Company",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"Stripe India Tech\",\n  \"email\": \"placements@stripe.com\",\n  \"phone\": \"+91 8099887766\",\n  \"website\": \"https://stripe.com\",\n  \"industry\": \"Financial Technology\",\n  \"location\": \"Bengaluru, Karnataka\",\n  \"description\": \"Financial infrastructure for the internet.\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/companies",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies"]
+            },
+            "description": "Register a new participating company."
+          }
+        },
+        {
+          "name": "Get All Companies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/companies",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies"]
+            },
+            "description": "Retrieve all companies."
+          }
+        },
+        {
+          "name": "Get Company By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/companies/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies", "1"]
+            },
+            "description": "Get company profile by ID."
+          }
+        },
+        {
+          "name": "Update Company",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"TechCorp Global India\",\n  \"email\": \"careers@techcorp.com\",\n  \"phone\": \"+91 8011223344\",\n  \"website\": \"https://techcorp.com\",\n  \"industry\": \"Information Technology & Enterprise SaaS\",\n  \"location\": \"Bengaluru, Karnataka\",\n  \"description\": \"Global digital transformation & enterprise SaaS company\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/companies/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies", "1"]
+            },
+            "description": "Update company details."
+          }
+        },
+        {
+          "name": "Delete Company",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/companies/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies", "5"]
+            },
+            "description": "Delete a company record."
+          }
+        },
+        {
+          "name": "Get Companies By Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/companies/status/ACTIVE",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies", "status", "ACTIVE"]
+            },
+            "description": "Filter companies by status (ACTIVE or INACTIVE)."
+          }
+        },
+        {
+          "name": "Search Companies By Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/companies/search?name=Tech",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "companies", "search"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Tech"
+                }
+              ]
+            },
+            "description": "Search companies by name keyword."
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - Placement Drive APIs",
+      "item": [
+        {
+          "name": "Create Placement Drive",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyId\": 1,\n  \"jobRole\": \"Full Stack Developer\",\n  \"jobDescription\": \"Build scalable cloud applications using Java, Spring Boot, and React.\",\n  \"eligibilityCriteria\": \"B.Tech in CSE / IT with minimum 7.5 CGPA and zero active backlogs\",\n  \"minimumCGPA\": 7.5,\n  \"package\": 11.5,\n  \"location\": \"Bengaluru\",\n  \"driveDate\": \"2026-10-15\",\n  \"applicationDeadline\": \"2026-10-05\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/drives",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives"]
+            },
+            "description": "Schedule a new campus placement drive."
+          }
+        },
+        {
+          "name": "Get All Placement Drives",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/drives",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives"]
+            },
+            "description": "Retrieve all placement drives."
+          }
+        },
+        {
+          "name": "Get Placement Drive By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/drives/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives", "1"]
+            },
+            "description": "Retrieve placement drive details by ID."
+          }
+        },
+        {
+          "name": "Update Placement Drive",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyId\": 1,\n  \"jobRole\": \"Associate Software Engineer - Backend\",\n  \"jobDescription\": \"Develop robust backend microservices with Java 21, Spring Boot, and Kafka.\",\n  \"eligibilityCriteria\": \"B.Tech (CSE/IT) with no active backlogs\",\n  \"minimumCGPA\": 7.0,\n  \"package\": 9.5,\n  \"location\": \"Bengaluru\",\n  \"driveDate\": \"2026-10-20\",\n  \"applicationDeadline\": \"2026-10-10\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/drives/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives", "1"]
+            },
+            "description": "Update placement drive parameters."
+          }
+        },
+        {
+          "name": "Delete Placement Drive",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/drives/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives", "5"]
+            },
+            "description": "Delete a placement drive."
+          }
+        },
+        {
+          "name": "Get Drives By Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/drives/status/OPEN",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives", "status", "OPEN"]
+            },
+            "description": "Filter placement drives by status (UPCOMING, OPEN, CLOSED, COMPLETED)."
+          }
+        },
+        {
+          "name": "Get Drives By Company ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/drives/company/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "drives", "company", "1"]
+            },
+            "description": "Retrieve all drives organized by a specific company."
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 - Application APIs",
+      "item": [
+        {
+          "name": "Create Application",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentId\": 4,\n  \"driveId\": 4,\n  \"remarks\": \"Applicant profile submitted for review\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/applications",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications"]
+            },
+            "description": "Submit a new student application for a placement drive."
+          }
+        },
+        {
+          "name": "Get All Applications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/applications",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications"]
+            },
+            "description": "Retrieve all student placement applications."
+          }
+        },
+        {
+          "name": "Get Application By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/applications/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications", "1"]
+            },
+            "description": "Get application details by ID."
+          }
+        },
+        {
+          "name": "Update Application Status",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"SELECTED\",\n  \"remarks\": \"Offer accepted with 8.5 LPA\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/applications/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications", "1"]
+            },
+            "description": "Update application status (APPLIED, SHORTLISTED, REJECTED, SELECTED). Automatically marks student as PLACED when SELECTED."
+          }
+        },
+        {
+          "name": "Delete Application",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/applications/15",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications", "15"]
+            },
+            "description": "Delete an application record."
+          }
+        },
+        {
+          "name": "Get Applications By Student ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/applications/student/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications", "student", "1"]
+            },
+            "description": "List all applications for a specific student."
+          }
+        },
+        {
+          "name": "Get Applications By Drive ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/applications/drive/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications", "drive", "1"]
+            },
+            "description": "List all candidate applications for a specific drive."
+          }
+        },
+        {
+          "name": "Get Applications By Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/applications/status/SELECTED",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "applications", "status", "SELECTED"]
+            },
+            "description": "Filter applications by status (APPLIED, SHORTLISTED, REJECTED, SELECTED)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 - Dashboard APIs",
+      "item": [
+        {
+          "name": "Get Placement Dashboard Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/dashboard",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "dashboard"]
+            },
+            "description": "Fetch real-time dynamically calculated statistics across all students, companies, drives, and applications."
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
